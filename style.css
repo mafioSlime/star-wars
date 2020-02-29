@@ -9,7 +9,6 @@ body {
   padding: 0px;
   margin: 0px;
   font-family: jedi;
-  overflow: hidden;
 }
 
 .fullScreen {
@@ -39,11 +38,10 @@ body {
 .character-container {
   color: #fff;
   position: absolute;
-  top: 25%;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, 25%);
+  transform: translate(-50%, -60%);
   color: aqua;
-  /* border: 2px solid #ffff00; */
   min-width: 80%;
   text-align: center;
   margin: 0 auto;
@@ -56,12 +54,17 @@ body {
   padding: 0.5rem;
 }
 
-.btn {
+.btn-container {
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%, 25%);
+  text-align: center;
 }
+
+
+
+
 
 button {
   padding: 5px;
@@ -70,4 +73,5 @@ button {
   background-color: crimson;
   font-family: jedi;
   cursor: pointer;
+  margin: 0.3rem
 }
