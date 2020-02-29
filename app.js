@@ -1,42 +1,48 @@
 const characterContainer = document.querySelector('.character-container')
 const x = 1
-const random = Math.floor(Math.random() * 80);
-const url = (`https://swapi.co/api/people/${x * random}/`)
+const btn = document.querySelector('.btn')
+
+let randomNumber = (a, b) => {
+  return Math.floor(Math.random() * a + b)
+}
+
+const generateCharacter = () => {
+  const url = (`https://swapi.co/api/people/${randomNumber(40, 1)}/`)
+  fetch(url)
+    .then((res) => {
+      return res.json()
+    })
+    .then((data) => {
+      let character = {}
+      character.name = data.name
+      character.birthdate = data.birth_year
+      character.gender = data.gender
+      character.haircolor = data.hair_color
+      character.skincolor = data.skin_color
+      character.eyecolor - data.eye_color
+      character.height = data.height
+      character.mass = data.mass
+
+      characterContainer.innerHTML = `
+       <div>
+      <h3>Name: ${character.name}</h3>
+      <p><span>Birthdate: ${character.birthdate}</p>
+      <p>Gender: ${character.gender}</p>
+      <p>Hair Color: ${character.haircolor}</p>
+      <p>Skin Color: ${character.skincolor}</p>
+      <p>Eye Color: ${character.eyecolor}</p>
+      <p>Height: ${character.height}</p>
+      <p>Mass: ${character.mass}</p>
+    </div>
+    `
+
+      // if (character.name = 'undefine') {
+      //   characterContainer.innerHTML = 'Please generate again.'
+      // }
+    })
+}
 
 
-
-
-fetch(url)
-  .then((res) => {
-    return res.json()
-  })
-  .then((data) => {
-    console.log(data)
-    let character = {}
-    character.name = data.name
-    character.birthdate = data.birth_year
-    character.gender = data.gender
-    character.haircolor = data.hair_color
-    character.skincolor = data.skin_color
-    character.eyecolor - data.eye_color
-    character.height = data.height
-    character.mass = data.mass
-    console.log(character)
-    // generateTemplate()
-  })
-
-// const generateTemplate = (character) => {
-//   const html = `
-//     <div>
-//       <h3>${character.name}</h3>
-//       <p>${character.birthdate}</p>
-//       <p>${character.gender}</p>
-//       <p>${character.haircolor}</p>
-//       <p>${character.skincolor}</p>
-//       <p>${character.eyecolor}</p>
-//       <p>${character.height}</p>
-//       <p>${character.mass}</p>
-//     </div>
-
-//   `
-// }
+btn.addEventListener('click', () => {
+  generateCharacter()
+})
