@@ -24,7 +24,7 @@ const generateCharacter = () => {
       character.mass = data.mass
 
       characterContainer.innerHTML = `
-       <div>
+       <div style="border: 2px solid #ffff00;" >
       <h3>Name: ${character.name}</h3>
       <p><span>Birthdate: ${character.birthdate}</p>
       <p>Gender: ${character.gender}</p>
@@ -36,9 +36,6 @@ const generateCharacter = () => {
     </div>
     `
 
-      // if (character.name = 'undefine') {
-      //   characterContainer.innerHTML = 'Please generate again.'
-      // }
     })
 }
 
