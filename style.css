@@ -28,7 +28,7 @@ body {
 .title h1 {
   font-weight: bolder;
   color: #000;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   letter-spacing: 3px;
   -webkit-text-stroke: 2px #ffff00;
   border: 2px solid #ffff00;
@@ -38,13 +38,14 @@ body {
 .character-container {
   color: #fff;
   position: absolute;
-  top: 60%;
+  top: 115%;
   left: 50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -115%);
   color: aqua;
   min-width: 80%;
   text-align: center;
   margin: 0 auto;
+  letter-spacing: 1px;
 }
 
 .character-container div {
@@ -56,22 +57,39 @@ body {
 
 .btn-container {
   position: absolute;
-  top: 25%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, 25%);
+  transform: translate(-50%, -20%);
   text-align: center;
 }
-
-
-
-
 
 button {
   padding: 5px;
   letter-spacing: 3px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   background-color: crimson;
   font-family: jedi;
   cursor: pointer;
-  margin: 0.3rem
+  margin: 0.3rem;
+}
+
+@media (min-width: 420px) {
+  .character-container {
+    top: 95%;
+    transform: translate(-50%, -95%);
+  }
+}
+
+@media (min-width: 470px) {
+  .character-container {
+    top: 75%;
+    transform: translate(-50%, -75%);
+  }
+}
+
+@media (min-width: 640px) {
+  .character-container {
+    top: 60%;
+    transform: translate(-50%, -60%);
+  }
 }

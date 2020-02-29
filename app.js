@@ -2,6 +2,8 @@ const characterContainer = document.querySelector(".character-container");
 const x = 1;
 const characterBtn = document.querySelector(".character-btn");
 const planetBtn = document.querySelector(".planet-btn");
+const starshipBtn = document.querySelector('.starship-btn')
+
 let randomNumber = (a, b) => {
   return Math.floor(Math.random() * a + b);
 };
@@ -70,6 +72,48 @@ const generatePlanet = () => {
       `;
     });
 };
+
+
+const generateStarship = () => {
+  const url = `https://swapi.co/api/starships/${randomNumber(9, 1)}/`;
+  fetch(url)
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      let starship = {}
+      starship.name = data.name;
+      starship.model = data.model;
+      starship.manufacturer = data.manufacturer;
+      starship.cost = data.cost_in_credits;
+      starship.crew = data.crew;
+      starship.passengers = data.passengers;
+      starship.cargo = data.cargo_capacity;
+      starship.hyperdrive = data.hyperdrive_rating
+      starship.class = data.starship_class
+
+
+      characterContainer.innerHTML = `
+    <div style="border: 2px solid #ffff00">
+    <h3>Name: ${starship.name}</h3>
+    <p>Model: ${starship.model}</p>
+    <p>Cost: ${starship.cost}</p>
+    <p>Crew: ${starship.crew}</p>
+    <p>Passengers: ${starship.passengers}</p> 
+    <p>Hyperdrive Rating: ${starship.hyperdrive}</p>
+    <p>Cargo: ${starship.cargo}</p>
+    <p>Class: ${starship.class}</p>
+    </div>
+    
+    
+    `
+    })
+}
+
+
+starshipBtn.addEventListener('click', () => {
+  generateStarship()
+})
 
 characterBtn.addEventListener("click", () => {
   generateCharacter();
